@@ -38,9 +38,12 @@ function renderCharList(characters) {
     const character = characters[i];
     const li = document.createElement("li");
     li.className = "character";
+  
+    const imageSrc = `${character.thumbnail.path.replace("http://", "https://")}.${character.thumbnail.extension}`;
+  
     li.innerHTML = `
       <div class="image-div">
-        <img class="charImg" src="${character.thumbnail.path}.${character.thumbnail.extension}" alt="">
+        <img class="charImg" src="${imageSrc}" alt="">
       </div>
       <div class="details">
         <p class="name">${character.name}</p>
@@ -49,6 +52,9 @@ function renderCharList(characters) {
         <p class="stories">Stories: ${character.stories.available}</p>
       </div>
     `;
+  
+
+  
 
     charListUl.appendChild(li);
   }

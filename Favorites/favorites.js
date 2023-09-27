@@ -84,10 +84,14 @@ function search_characters() {
                 const character = characters[i];
                 const searchItem = document.createElement("div");
                 searchItem.className = "search-item";
+                const imagePath = character.thumbnail.path.replace("http://", "https://");
+                const imageSrc = `${imagePath}.${character.thumbnail.extension}`;
+
                 searchItem.innerHTML = `
                 <div style="display: flex; align-items: center; flex-direction:row;">
+                
                     <a href="../Characters/character.html?character=${character.id}">
-                    <img src="${character.thumbnail.path}.${character.thumbnail.extension}" alt="${character.name}">
+                    <img src="${imageSrc}" alt="${character.name}">
                     </a><a href="../Characters/character.html?character=${character.id}">
                     <p class="fs-3">${character.name}</p>
                     </a>
