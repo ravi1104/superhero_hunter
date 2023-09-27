@@ -1,6 +1,6 @@
 const resultDiv = document.getElementById("result");
 const apiUrl =
-  "http://gateway.marvel.com/v1/public/characters?ts=1&apikey=fdeb3f85bfe23ee3a791b0f4c7ec18b9&hash=56a9ac5e3abbfa45fa88140cd53af50b";
+  "https://gateway.marvel.com/v1/public/characters?ts=1&apikey=fdeb3f85bfe23ee3a791b0f4c7ec18b9&hash=56a9ac5e3abbfa45fa88140cd53af50b";
 
 // Function to fetch Marvel characters data
 var fetchData = function () {
@@ -64,7 +64,7 @@ search_btn.addEventListener("click", search_characters);
 function search_characters() {
   var input = document.getElementById("search-input");
   var userData = input.value;
-  const search_url = `http://gateway.marvel.com/v1/public/characters?nameStartsWith=${userData}&ts=1&apikey=fdeb3f85bfe23ee3a791b0f4c7ec18b9&hash=56a9ac5e3abbfa45fa88140cd53af50b`;
+  const search_url = `https://gateway.marvel.com/v1/public/characters?nameStartsWith=${userData}&ts=1&apikey=fdeb3f85bfe23ee3a791b0f4c7ec18b9&hash=56a9ac5e3abbfa45fa88140cd53af50b`;
 
   var searchResults = document.getElementById("search_list");
 

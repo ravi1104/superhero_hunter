@@ -4,7 +4,7 @@ const urlParams = new URLSearchParams(queryString);
 
 const characterId = urlParams.get("character");
 // Construct the URL to fetch character details by ID
-const characterDetailsUrl = `http://gateway.marvel.com/v1/public/characters/${characterId}?ts=1&apikey=fdeb3f85bfe23ee3a791b0f4c7ec18b9&hash=56a9ac5e3abbfa45fa88140cd53af50b`;
+const characterDetailsUrl = `https://gateway.marvel.com/v1/public/characters/${characterId}?ts=1&apikey=fdeb3f85bfe23ee3a791b0f4c7ec18b9&hash=56a9ac5e3abbfa45fa88140cd53af50b`;
 
 // Select the div where you want to display character details
 const characterDetailsDiv = document.getElementById("character-details");
