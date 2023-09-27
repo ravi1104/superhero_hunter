@@ -93,10 +93,10 @@ function search_characters() {
         searchItem.className = "search-item";
         searchItem.innerHTML = `
           <div style="display: flex; align-items: center; flex-direction:row;">
-            <a href="../Characters/character.html?character=${character.id}">
+            <a href="./Characters/character.html?character=${character.id}">
               <img src="${character.thumbnail.path}.${character.thumbnail.extension}" alt="${character.name}">
             </a>
-            <a href="../Characters/character.html?character=${character.id}">
+            <a href="./Characters/character.html?character=${character.id}">
               <p class="fs-3">${character.name}</p>
             </a>
             <i class="fa-regular fa-heart text-danger favoriteBtn fs-3 m-4 " style="cursor:pointer;"></i>
