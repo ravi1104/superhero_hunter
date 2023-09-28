@@ -104,8 +104,9 @@ function search_characters() {
 
                 // Add an event listener to the "Favorite" button
                 const favoriteBtn = searchItem.querySelector(".favoriteBtn");
-                favoriteBtn.addEventListener("click", () => {
+                favoriteBtn.addEventListener("click", function(event){
                     addToFavorites(character);
+                    event.stopPropagation();
                 });
 
                 searchResults.appendChild(searchItem);
@@ -119,3 +120,9 @@ function search_characters() {
             searchResults.textContent = "An error occurred while fetching data.";
         });
 }
+
+document.addEventListener('click',()=>{
+    var hide=document.getElementById("search_list");
+    hide.style.display="none";
+  
+  });

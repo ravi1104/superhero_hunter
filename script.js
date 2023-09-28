@@ -38,9 +38,9 @@ function renderCharList(characters) {
     const character = characters[i];
     const li = document.createElement("li");
     li.className = "character";
-  
+
     const imageSrc = `${character.thumbnail.path.replace("http://", "https://")}.${character.thumbnail.extension}`;
-  
+
     li.innerHTML = `
       <div class="image-div">
         <img class="charImg" src="${imageSrc}" alt="">
@@ -52,9 +52,9 @@ function renderCharList(characters) {
         <p class="stories">Stories: ${character.stories.available}</p>
       </div>
     `;
-  
 
-  
+
+
 
     charListUl.appendChild(li);
   }
@@ -65,10 +65,16 @@ fetchData();
 
 var search_btn = document.getElementById("searchButton");
 search_btn.addEventListener("click", search_characters);
+var input = document.getElementById("inputBox");
+input.addEventListener("keydown", function (event) {
+  if (event.key == "Enter") {
+    search_characters();
+  }
+});
 
 // Function to search Marvel characters
 function search_characters() {
-  var input = document.getElementById("search-input");
+  var input = document.getElementById("inputBox");
   var userData = input.value;
   const search_url = `https://gateway.marvel.com/v1/public/characters?nameStartsWith=${userData}&ts=1&apikey=fdeb3f85bfe23ee3a791b0f4c7ec18b9&hash=56a9ac5e3abbfa45fa88140cd53af50b`;
 
@@ -94,7 +100,7 @@ function search_characters() {
         searchItems.style.display = "none";
       });
       searchResults.appendChild(bar);
-      
+
       // Display search results
       const characters = jsonData.data.results;
       for (let i = 0; i < characters.length; i++) {
@@ -102,7 +108,7 @@ function search_characters() {
         const searchItem = document.createElement("div");
         searchItem.className = "search-item d-flex align-items-center justify-content-center";
         const imageSrc = `${character.thumbnail.path.replace("http://", "https://")}.${character.thumbnail.extension}`;
- 
+
         searchItem.innerHTML = `
           <div style="display: flex; align-items: center; flex-direction:row;">
             <a href="./Characters/character.html?character=${character.id}">
@@ -111,16 +117,16 @@ function search_characters() {
             <a href="./Characters/character.html?character=${character.id}">
               <p class="fs-3">${character.name}</p>
             </a>
-            <i class="fa-regular fa-heart text-danger favoriteBtn fs-3 m-4 " style="cursor:pointer;"></i>
+            <i class="fa-regular fa-heart favoriteBtn fs-3 m-4 " style="cursor:pointer;"></i>
           </div>
         `;
 
         // Add an event listener to the "Favorite" button
         const favoriteBtn = searchItem.querySelector(".favoriteBtn");
-        favoriteBtn.addEventListener("click", () => {
+        favoriteBtn.addEventListener("click", function (event) {
           addToFavorites(character);
+          event.stopPropagation();
         });
-
 
         searchResults.appendChild(searchItem);
       }
@@ -156,3 +162,8 @@ function addToFavorites(superhero) {
   // Save the updated favorites to localStorage
   saveFavoritesToLocalStorage(favorites);
 }
+document.addEventListener('click', () => {
+  var hide = document.getElementById("search_list");
+  hide.style.display = "none";
+
+});

@@ -23,6 +23,9 @@ body:hover::before {
   transform: scale(1.2);
 }
 
+.navbar a:hover{  
+  color: rgb(255, 142, 142) !important;
+}
 .search_items {
   display: none;
   position: absolute;
@@ -65,9 +68,9 @@ body:hover::before {
 
 
 .search-item a:hover {
-  color: black;
+  color: white;
 }
-.search-item i:hover{
+.fa-heart:hover{
 	animation-name: heartglow;
 	animation-iteration-count: infinite;
 	animation-direction: alternate;
