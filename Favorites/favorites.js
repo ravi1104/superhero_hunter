@@ -18,9 +18,11 @@ function displayFavorites() {
 function createFavoriteCard(superhero, favoriteList) {
     const listItem = document.createElement("div");
     listItem.className = "favorite-item";
+    const imageSrc = `${superhero.thumbnail.path.replace("http://", "https://")}.${superhero.thumbnail.extension}`;
+ 
     listItem.innerHTML = `
         <div class="card m-2" style="width: 18rem;">
-            <img src="${superhero.thumbnail.path}.${superhero.thumbnail.extension}" class="card-img-top" alt="${superhero.name}">
+            <img src="${imageSrc}" class="card-img-top" alt="${superhero.name}">
             <div class="card-body">
                 <p class="card-text">${superhero.name}</p>
             </div>

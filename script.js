@@ -88,15 +88,21 @@ function search_characters() {
 
       const bar = document.createElement("div");
       bar.className = "bar";
-      bar.innerHTML = `<div><a href="./index.html">x</a></div>`;
+      bar.innerHTML = `<div><a>X</a></div>`;
+      bar.addEventListener('click', () => {
+        var searchItems = document.getElementById('search_list');
+        searchItems.style.display = "none";
+      });
       searchResults.appendChild(bar);
-
+      
       // Display search results
       const characters = jsonData.data.results;
       for (let i = 0; i < characters.length; i++) {
         const character = characters[i];
         const searchItem = document.createElement("div");
-        searchItem.className = "search-item";
+        searchItem.className = "search-item d-flex align-items-center justify-content-center";
+        const imageSrc = `${character.thumbnail.path.replace("http://", "https://")}.${character.thumbnail.extension}`;
+ 
         searchItem.innerHTML = `
           <div style="display: flex; align-items: center; flex-direction:row;">
             <a href="./Characters/character.html?character=${character.id}">
@@ -114,6 +120,7 @@ function search_characters() {
         favoriteBtn.addEventListener("click", () => {
           addToFavorites(character);
         });
+
 
         searchResults.appendChild(searchItem);
       }

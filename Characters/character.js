@@ -20,11 +20,12 @@ fetch(characterDetailsUrl)
   .then((jsonData) => {
     // Parse the response data
     const character = jsonData.data.results[0]; // Assuming the API returns a single character based on the ID
-    
+    const imageSrc = `${character.thumbnail.path.replace("http://", "https://")}.${character.thumbnail.extension}`;
+  
     // Create HTML content for character details
     const characterHTML = `
       <h2>${character.name}</h2>
-      <img class="card-img-top" src="${character.thumbnail.path}.${character.thumbnail.extension}" alt="${character.name}">
+      <img class="card-img-top" src="${imageSrc}" alt="${character.name}">
       <div class="card-body">
       <p>Description: ${character.description || "No description available."}</p>
       <p>Comics: ${character.comics.available}</p>
