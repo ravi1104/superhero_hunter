@@ -20,7 +20,7 @@ The Superhero Hunter JS application offers the following features:
   - Fetches and displays a list of superheroes from the Marvel API.
   - Provides a search bar for filtering superheroes based on user queries (e.g., "bat" for "Batman").
   - Allows users to add superheroes to their list of favorite superheroes.
-
+![Home Page](Screenshot105.png)
 - **Superhero Page**:
   - Displays detailed information about a selected superhero, including their name, photo, bio, and other data retrieved from the Marvel API (comics, events, series, stories, etc).
 
