@@ -123,8 +123,23 @@ function search_characters() {
 
         // Add an event listener to the "Favorite" button
         const favoriteBtn = searchItem.querySelector(".favoriteBtn");
+        // Add a hover event listener
+        favoriteBtn.addEventListener('mouseover', () => {
+          // When the mouse hovers over, remove the "fa-regular" class and add the "fa-solid" class
+          favoriteBtn.classList.remove('fa-regular');
+          favoriteBtn.classList.add('fa-solid');
+        });
+
+        favoriteBtn.addEventListener('mouseout', () => {
+          // When the mouse leaves, remove the "fa-solid" class and add back the "fa-regular" class
+          favoriteBtn.classList.remove('fa-solid');
+          favoriteBtn.classList.add('fa-regular');
+        });
+
+
         favoriteBtn.addEventListener("click", function (event) {
           addToFavorites(character);
+          window.alert(character.name + " Added to Favorites");
           event.stopPropagation();
         });
 
@@ -138,11 +153,6 @@ function search_characters() {
       console.error("Fetch error:", error);
       searchResults.textContent = "An error occurred while fetching data.";
     });
-}
-
-// Function to save favorite superheroes to localStorage
-function saveFavoritesToLocalStorage(favorites) {
-  localStorage.setItem("favoriteSuperheroes", JSON.stringify(favorites));
 }
 
 // Function to load favorite superheroes from localStorage
@@ -160,8 +170,9 @@ function addToFavorites(superhero) {
   favorites.push(superhero);
 
   // Save the updated favorites to localStorage
-  saveFavoritesToLocalStorage(favorites);
+  localStorage.setItem("favoriteSuperheroes", JSON.stringify(favorites));
 }
+
 document.addEventListener('click', () => {
   var hide = document.getElementById("search_list");
   hide.style.display = "none";
