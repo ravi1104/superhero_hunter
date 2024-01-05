@@ -54,4 +54,4 @@ To set up and run the Superhero Hunter JS application locally, follow these step
    ```shell
    npm install crypto-js
 
-[Hosted Link Here](https://ravi1104.github.io/superhero_hunter1/)
+[Hosted Link Here](https://ravi1104.github.io/superhero_hunter/)
